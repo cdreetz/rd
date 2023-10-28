@@ -2,11 +2,17 @@
 1. Load data to postgre
 2. Connect python to db with sqlalchemy
 3. Start querying
+4. 
 
+## Tasks
 
-
+1. Plot # studen
 
 ## Data
+
+1. CRDC and SAIPE dataset
+2. HMDA
+3. HMDA and SDGR and ACLF
 
 ## Plan
 [] Exploratory
