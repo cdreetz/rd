@@ -11,8 +11,15 @@
 ## Data
 
 1. CRDC and SAIPE dataset
+    -csv (CRDC)
+    -xls (SAIPE)
 2. HMDA
+    -csv
 3. HMDA and SDGR and ACLF
+    -csv(HMDA)
+    -csv and sas7bdat versions(SDGR)
+    -pdf(SDGR)
+    -txt (ACLF)
 
 ## Plan
 [] Exploratory
