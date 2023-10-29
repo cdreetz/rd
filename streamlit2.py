@@ -8,14 +8,13 @@ from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
 
 
 
-data = pd.read_csv('/Volumes/Untitled/Data-20231026T061813Z-001/Data/2017-18-crdc-data/2017-18 Public-Use Files/Data/LEA/CRDC/CSV/LEA Characteristics.csv', encoding='cp1252')
-
+data = pd.read_csv('./rd/data/LEA Characteristics.csv')
 data['LEAID'] = data['LEAID'].astype(str)
 data['LEAID'] = data['LEAID'].apply(lambda x: str(x)[2:].lstrip('0'))
-data2 = pd.read_excel('/Volumes/Untitled/Data-20231026T061813Z-001/Data/ussd17.xls', skiprows=2)
+data2 = pd.read_excel('./rd/data/ussd17.xls')
 data2.rename(columns={data2.columns[-1]: "Children in Poverty", 'District ID': 'LEAID', 'State Postal Code': 'LEA_STATE'}, inplace=True)
 data2['LEAID'] = data2['LEAID'].astype(str)
-gdf = gpd.read_file('/Volumes/Untitled/Data-20231026T061813Z-001/Data/EDGE_GEOCODE_PUBLICLEA_1718/EDGE_GEOCODE_PUBLICLEA_1718/EDGE_GEOCODE_PUBLICLEA_1718.shp')
+gdf = gpd.read_file('./rd/data/EDGE_GEOCODE_PUBLICLEA_1718.shp')
 gdf['LEAID'] = gdf['LEAID'].apply(lambda x: str(x)[2:].lstrip('0'))
 gdf.rename(columns={'STATE': 'LEA_STATE', 'ZIP': 'LEA_ZIP'}, inplace=True)
 merged_data = pd.merge(data[['LEAID', 'LEA_STATE', 'LEA_ZIP', 'LEA_ENR']], data2[['LEAID', 'LEA_STATE','Children in Poverty']], on=['LEAID', 'LEA_STATE'])
